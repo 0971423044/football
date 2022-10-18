@@ -14,5 +14,14 @@ public class HomeController {
 		ModelAndView mav = new ModelAndView("user/index");
 		return mav;
 	}
+	
+	@RequestMapping(value="/trang-chu/product")
+	
+	public ModelAndView showProduct()
+	{
+		ModelAndView mav = new ModelAndView("user/product");
+		
+		return mav;
+	}
 
 }
