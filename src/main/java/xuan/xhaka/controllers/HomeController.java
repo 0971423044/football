@@ -3,14 +3,16 @@ package xuan.xhaka.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
 	
-	@RequestMapping(value={"/home","/trang-chu"}, method = RequestMethod.GET)
-	public String homePage()
+	@RequestMapping(value={"/trang-chu"}, method = RequestMethod.GET)
+	public ModelAndView homePage()
 	{
-		return "homepage/index";
+		ModelAndView mav = new ModelAndView("user/index");
+		return mav;
 	}
 
 }

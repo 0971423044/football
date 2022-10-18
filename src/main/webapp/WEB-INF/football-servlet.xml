@@ -18,6 +18,7 @@
 		<!-- Add support for conversion, formatting and validation support -->
 		<context:component-scan base-package="xuan.xhaka" />
 		<mvc:annotation-driven />
+		<mvc:resources location="/assets/" mapping="/assets/**"></mvc:resources>
 		
 		<!-- Define Spring MVC view resolver -->
 		<beans:bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

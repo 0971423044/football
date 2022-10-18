@@ -3,7 +3,6 @@ package xuan.xhaka.controllers;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +26,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public ModelAndView processLogin(HttpSession session, HttpRequest req, HttpResponse res, @ModelAttribute("loginReq") LoginReq loginReq)
+	public ModelAndView processLogin(HttpRequest req, HttpResponse res, @ModelAttribute("loginReq") LoginReq loginReq)
 	{
 		ModelAndView mav = new ModelAndView();
 		return mav;
