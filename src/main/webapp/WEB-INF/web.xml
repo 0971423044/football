@@ -5,7 +5,7 @@
 	  <welcome-file-list>
 	    	<welcome-file>index.jsp</welcome-file>
 	  </welcome-file-list>
-	  <display-name>Arsenal Forever </display-name>
+	  <display-name>Arsenal Forever</display-name>
 	  
 	  <servlet>
 		    <servlet-name>football</servlet-name>
@@ -17,7 +17,7 @@
 		    <url-pattern>/</url-pattern>
 	  </servlet-mapping>
 	  
-	  <filter>
+	   <filter>
 		    <filter-name>sitemesh</filter-name>
 		    <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
 		   	<init-param>

@@ -44,12 +44,11 @@ Navigation Bar Section
 			</a>
 			<div class="nav-collapse">
 				<ul class="nav">
-					<li class="active"><a href="index.html">Home </a></li>
-					<li class=""><a href="list-view.html">Product</a></li>
-					<li class=""><a href="grid-view.html">About</a></li>
-					<li class=""><a href="three-col.html">Contact</a></li>
-					<li class=""><a href="four-col.html">Services</a></li>
-					<li class=""><a href="general.html">Cart</a></li>
+					<c:forEach var="item" items="${listMenus}">
+						<li class="active"><a href="index.html">${item.name}</a></li>
+					</c:forEach>
+					
+					
 				</ul>
 				<form action="#" class="navbar-search pull-left">
 					<input type="text" placeholder="Search" class="search-query span2">

@@ -4,22 +4,24 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
  <configuration>
   	<typeAliases>
-  		<typeAlias type="xuan.xhaka.entity.User" alias="user"/>
-  		<typeAlias type="xuan.xhaka.entity.Product" alias="product" />
+  		<typeAlias type="xuan.xhaka.entity.Category" alias="category" />
+  		<typeAlias type="xuan.xhaka.entity.Menu" alias="menu"/>
+  		<typeAlias type="xuan.xhaka.entity.Slide" alias="slide"/>
   	</typeAliases>
-  	<environments default="develoment">
+  	<environments default="development">
   		<environment id="development">
 		      <transactionManager type="JDBC"/>
 		      <dataSource type="POOLED">
 			        <property name="driver" value="com.mysql.jdbc.Driver"/>
-			        <property name="url" value="jdbc:mysql://localhost/football"/>
+			        <property name="url" value="jdbc:mysql://localhost:/employeemybbatis"/>
 			        <property name="username" value="root"/>
 			        <property name="password" value="abc123"/>
 		      </dataSource>
    		 </environment>
   	</environments>
   	<mappers>
-  		<mapper resource="xuan/xhaka/mapper/UserMapper.xml" />
-  		<mapper resource="xuan/xhaka/mapper/ProductMapper.xml"/>
+  		<mapper resource="xuan/xhaka/mappers/CategoryMapper.xml"/>
+  		<mapper resource="xuan/xhaka/mappers/MenuMapper.xml"/>
+  		<mapper resource="xuan/xhaka/mappers/SlideMapper.xml"/>
   	</mappers>
  </configuration>
