@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- <!--  <mapper namespace="xuan.xhaka.dao.ProductMapper">
- 	<resultMap id="result" type="product">
+ <mapper namespace="xuan.xhaka.dao.ProductMapper">
+ 	<resultMap id="productMap" type="product">
  		<id property="id" column="id" />
  		<result property="productname" column="productname" />
  		<result property="price" column="price" />
@@ -14,10 +14,51 @@
  		<result property="highlight" column="highlight" />
  		<result property="product_new" column="product_new" />
  		<result property="detail" column="detail" />
+ 		<result property="sale" column="sale" />
+ 		<result property="size" column="size" />
  		<result property="create_at" column="create_at" />
  		<result property="updated_at" column="updated_at" />
- 		<result property="size" column="size" />
- 		<result property="sale" column="sale" />
- 		
+ 		<collection property="listColor" javaType="List" ofType="productColor">
+ 			<result property="id_color" column="id_color"/>
+ 			<result property="product_id" column="product_id"/>
+ 			<result property="name_color" column="name_color"/>
+ 			<result property="code" column="code"/>
+ 			<result property="img" column="img"/>
+ 		</collection>
  	</resultMap>
- </mapper>-->
+ 	<!-- <resultMap id="colorMap" type="productColor">
+ 		<id property="id_color" column="id_color" />
+ 		<result property="name_color" column="name_color" />
+ 		<result property="code" column="code" />
+ 		<result property="img" column="img" />
+ 		<result property="id_product" column="product_id"/>
+ 	</resultMap> -->
+ 	<select id="getAllProducts" resultType="product" resultMap="productMap">
+ 		SELECT p.id AS product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
+ 		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
+ 		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
+ 		FROM product AS p JOIN product_color AS c ON p.id=c.product_id
+ 		GROUP BY p.id, c.product_id
+ 	</select>
+ 	<select id="getProductsNew" resultType="product" resultMap="productMap">
+ 		SELECT p.id AS product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
+ 		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
+ 		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
+ 		FROM product AS p JOIN product_color AS c ON p.id=c.product_id
+ 		WHERE 1=1 AND p.product_new=true
+ 		GROUP BY p.id, c.product_id
+ 		ORDER BY RAND()
+ 		LIMIT 8
+ 	</select>
+ 	<select id="getProductsHighlight" resultType="product" resultMap="productMap">
+ 		SELECT p.id, p.id_category, p.productname, p.size, p.price, p.sale, 
+ 		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
+ 		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
+ 		FROM product AS p JOIN product_color AS c 
+ 		ON p.id=c.product_id
+ 		WHERE 1=1 AND p.highlight=true
+ 		GROUP BY p.id, c.product_id
+ 		ORDER BY RAND()
+ 		LIMIT 6
+ 	</select>
+ </mapper>

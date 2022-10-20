@@ -122,6 +122,7 @@ New Products
 -->
 		<div class="well well-small">
 			<h3>New Products</h3>
+			<h4>${listProHighlight.size()}</h4>
 			<hr class="soften" />
 			<div class="row-fluid">
 				<div id="newProductCar" class="carousel slide">
@@ -215,83 +216,7 @@ New Products
 						href="#newProductCar" data-slide="next">&rsaquo;</a>
 				</div>
 			</div>
-			<div class="row-fluid">
-				<ul class="thumbnails">
-					<li class="span4">
-						<div class="thumbnail">
-
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="<c:url value="/assets/user/img/feature-product/feature-product-1.jpg"/>"
-								alt=""></a>
-							<div class="caption cntr">
-								<p>Manicure & Pedicure</p>
-								<p>
-									<strong> $22.00</strong>
-								</p>
-								<h4>
-									<a class="shopBtn" href="#" title="add to cart"> Add to
-										cart </a>
-								</h4>
-								<div class="actionList">
-									<a class="pull-left" href="#">Add to Wish List </a> <a
-										class="pull-left" href="#"> Add to Compare </a>
-								</div>
-								<br class="clr">
-							</div>
-						</div>
-					</li>
-					<li class="span4">
-						<div class="thumbnail">
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="<c:url value="/assets/user/img/feature-product/feature-product-2.jpg"/>"
-								alt=""></a>
-							<div class="caption cntr">
-								<p>Manicure & Pedicure</p>
-								<p>
-									<strong> $22.00</strong>
-								</p>
-								<h4>
-									<a class="shopBtn" href="#" title="add to cart"> Add to
-										cart </a>
-								</h4>
-								<div class="actionList">
-									<a class="pull-left" href="#">Add to Wish List </a> <a
-										class="pull-left" href="#"> Add to Compare </a>
-								</div>
-								<br class="clr">
-							</div>
-						</div>
-					</li>
-					<li class="span4">
-						<div class="thumbnail">
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="<c:url value="/assets/user/img/feature-product/feature-product-3.jpg"/>"
-								alt=""></a>
-							<div class="caption cntr">
-								<p>Manicure & Pedicure</p>
-								<p>
-									<strong> $22.00</strong>
-								</p>
-								<h4>
-									<a class="shopBtn" href="#" title="add to cart"> Add to
-										cart </a>
-								</h4>
-								<div class="actionList">
-									<a class="pull-left" href="#">Add to Wish List </a> <a
-										class="pull-left" href="#"> Add to Compare </a>
-								</div>
-								<br class="clr">
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
+			
 		</div>
 		<!--
 	Featured Products
@@ -304,62 +229,30 @@ New Products
 			</h3>
 			<hr class="soften" />
 			<div class="row-fluid">
+				<c:if test="${listProHighlight.size()>0 }">
 				<ul class="thumbnails">
+					<c:forEach var="item" items="${listProHighlight}" varStatus="loop">
 					<li class="span4">
 						<div class="thumbnail">
 							<a class="zoomTool" href="product_details.html"
 								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="<c:url value="/assets/user/img/thumbnail/thumbnail-3.jpg"/>"
+								VIEW</a> <a href="product-detail/${item.id}"><img
+								src="<c:url value="/assets/user/img/${item.img}"/>"
 								alt=""></a>
 							<div class="caption">
-								<h5>Manicure & Pedicure</h5>
+								<h5>${item.productname}</h5>
 								<h4>
 									<a class="defaultBtn" href="product_details.html"
 										title="Click to view"><span class="icon-zoom-in"></span></a> <a
 										class="shopBtn" href="#" title="add to cart"><span
-										class="icon-plus"></span></a> <span class="pull-right">$22.00</span>
+										class="icon-plus"></span></a> <span class="pull-right">${item.price}</span>
 								</h4>
 							</div>
 						</div>
 					</li>
-					<li class="span4">
-						<div class="thumbnail">
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="<c:url value="/assets/user/img/thumbnail/thumbnail-6.jpg"/>"
-								alt=""></a>
-							<div class="caption">
-								<h5>Manicure & Pedicure</h5>
-								<h4>
-									<a class="defaultBtn" href="product_details.html"
-										title="Click to view"><span class="icon-zoom-in"></span></a> <a
-										class="shopBtn" href="#" title="add to cart"><span
-										class="icon-plus"></span></a> <span class="pull-right">$22.00</span>
-								</h4>
-							</div>
-						</div>
-					</li>
-					<li class="span4">
-						<div class="thumbnail">
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="<c:url value="/assets/user/img/thumbnail/thumbnail-7.jpg"/>"
-								alt="" /></a>
-							<div class="caption">
-								<h5>Manicure & Pedicure</h5>
-								<h4>
-									<a class="defaultBtn" href="product_details.html"
-										title="Click to view"><span class="icon-zoom-in"></span></a> <a
-										class="shopBtn" href="#" title="add to cart"><span
-										class="icon-plus"></span></a> <span class="pull-right">$22.00</span>
-								</h4>
-							</div>
-						</div>
-					</li>
+					</c:forEach>
 				</ul>
+				</c:if>
 			</div>
 		</div>
 

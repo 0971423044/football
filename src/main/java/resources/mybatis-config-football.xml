@@ -7,6 +7,8 @@
   		<typeAlias type="xuan.xhaka.entity.Category" alias="category" />
   		<typeAlias type="xuan.xhaka.entity.Menu" alias="menu"/>
   		<typeAlias type="xuan.xhaka.entity.Slide" alias="slide"/>
+  		<typeAlias type="xuan.xhaka.entity.Product" alias="product"/>
+  		<typeAlias type="xuan.xhaka.entity.ProductColor" alias="productColor" />
   	</typeAliases>
   	<environments default="development">
   		<environment id="development">
@@ -23,5 +25,6 @@
   		<mapper resource="xuan/xhaka/mappers/CategoryMapper.xml"/>
   		<mapper resource="xuan/xhaka/mappers/MenuMapper.xml"/>
   		<mapper resource="xuan/xhaka/mappers/SlideMapper.xml"/>
+  		<mapper resource="xuan/xhaka/mappers/ProductMapper.xml"/>
   	</mappers>
  </configuration>

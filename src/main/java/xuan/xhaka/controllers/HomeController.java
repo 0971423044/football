@@ -13,6 +13,7 @@ import xuan.xhaka.dao.CategoryMapper;
 import xuan.xhaka.entity.Category;
 import xuan.xhaka.impl.CategoryServiceImpl;
 import xuan.xhaka.impl.MenuServiceImpl;
+import xuan.xhaka.impl.ProductServiceImpl;
 import xuan.xhaka.impl.SlideServiceImpl;
 
 @Controller
@@ -26,15 +27,19 @@ public class HomeController {
 	@Autowired
 	SlideServiceImpl slideService;
 	
+	@Autowired
+	ProductServiceImpl proService;
+	
 	@RequestMapping(value={"/trang-chu"}, method = RequestMethod.GET)
 	public ModelAndView homePage(Model model)
-	{
-		
+	{	
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("listCat", catService.getListCategories());
 		mav.addObject("listMenus", menuService.getAllMenus());
 		mav.addObject("listSlides", slideService.getListSlides());
+		mav.addObject("listProHighlight", proService.getListProductsHighligght());
+		mav.addObject("listProNew", proService.getListProductsNew());
 		mav.setViewName("user/index");
 		//model.addAttribute("listCat", listCategories);
 		return mav;
