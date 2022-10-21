@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Category Product </title>
 </head>
 <body>
-
+	<h3>This is products by category</h3>
 </body>
 </html>

@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="xuan.xhaka.dao.ProductMapper">
  	<resultMap id="productMap" type="product">
- 		<id property="id" column="id" />
+ 		<id property="product_id" column="product_id" />
  		<result property="productname" column="productname" />
  		<result property="price" column="price" />
  		<result property="quantity" column="quantity" />
@@ -18,13 +18,14 @@
  		<result property="size" column="size" />
  		<result property="create_at" column="create_at" />
  		<result property="updated_at" column="updated_at" />
- 		<collection property="listColor" javaType="List" ofType="productColor">
+ 		<collection property="listColor" javaType="List" ofType="xuan.xhaka.entity.ProductColor" column="product_id">
  			<result property="id_color" column="id_color"/>
- 			<result property="product_id" column="product_id"/>
  			<result property="name_color" column="name_color"/>
  			<result property="code" column="code"/>
  			<result property="img" column="img"/>
  		</collection>
+ 		<collection property="category" ofType="category" column="id_category"/>
+ 		
  	</resultMap>
  	<!-- <resultMap id="colorMap" type="productColor">
  		<id property="id_color" column="id_color" />
@@ -34,31 +35,44 @@
  		<result property="id_product" column="product_id"/>
  	</resultMap> -->
  	<select id="getAllProducts" resultType="product" resultMap="productMap">
- 		SELECT p.id AS product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
+ 		SELECT p.product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
  		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
  		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
- 		FROM product AS p JOIN product_color AS c ON p.id=c.product_id
- 		GROUP BY p.id, c.product_id
+ 		FROM product AS p JOIN product_color AS c ON p.product_id=c.product_id
+ 		GROUP BY p.product_id, c.product_id
  	</select>
  	<select id="getProductsNew" resultType="product" resultMap="productMap">
- 		SELECT p.id AS product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
+ 		SELECT p.product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
  		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
  		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
- 		FROM product AS p JOIN product_color AS c ON p.id=c.product_id
+ 		FROM product AS p JOIN product_color AS c ON p.product_id=c.product_id
  		WHERE 1=1 AND p.product_new=true
- 		GROUP BY p.id, c.product_id
+ 		GROUP BY p.product_id, c.product_id
  		ORDER BY RAND()
  		LIMIT 8
  	</select>
  	<select id="getProductsHighlight" resultType="product" resultMap="productMap">
- 		SELECT p.id, p.id_category, p.productname, p.size, p.price, p.sale, 
+ 		SELECT p.product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
  		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
  		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
  		FROM product AS p JOIN product_color AS c 
- 		ON p.id=c.product_id
+ 		ON p.product_id=c.product_id 
  		WHERE 1=1 AND p.highlight=true
- 		GROUP BY p.id, c.product_id
+ 		GROUP BY p.product_id, c.product_id
  		ORDER BY RAND()
- 		LIMIT 6
+ 		LIMIT 9
+ 	</select>
+ 	<select id="getProductThumbnail" resultType="product" resultMap="productMap">
+ 		SELECT p.product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
+ 		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
+ 		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
+ 		FROM product AS p JOIN product_color AS c  JOIN category AS cat
+ 		ON p.id_category=cat.id_category
+ 		ON p.product_id=c.product_id 
+ 		WHERE cat.name='Socks'
+ 		GROUP BY GROUP BY p.product_id, c.product_id
+ 	</select>
+ 	<select id="getProductByCategory" resultType="product" resultMap="productMap" parameterType="int" >
+ 		
  	</select>
  </mapper>

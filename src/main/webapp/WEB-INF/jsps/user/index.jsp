@@ -10,8 +10,9 @@
 			<div class="well well-small">
 				<ul class="nav nav-list">
 					<c:forEach var="item" items="${listCat}">
-						<li><a href="products.html"><span
-								class="icon-circle-blank"></span>${item.name}</a></li>
+						<li><a href='<c:url value="/product-cat/"/>'>
+						<span
+								class="icon-circle-bl	ank"></span>${item.name}</a></li>
 					</c:forEach>
 
 					<li><a class="totalInCart" href="cart.html"><strong>Total
@@ -29,9 +30,8 @@
 				</p>
 			</div>
 			<div class="well well-small">
-				<a href="#"><img
-					src="<c:url value="/assets/user/img/paypal.jpg"/>"
-					alt="payment method paypal"></a>
+				<a href="#"> 
+				<img src='<c:url value="/assets/user/img/paypal.jpg"/>' alt="payment method paypal" ></a>
 			</div>
 
 			<a class="shopBtn btn-block" href="#">Upcoming products <br>
@@ -100,7 +100,7 @@
 							</c:if>
 
 										<img style="width: 100%"
-											src="<c:url value="/assets/user/img/slide/${item.img}"/>"
+											src="<c:url value="/assets/user/img/${item.img}"/>"
 											alt="product 1">
 										<div class="carousel-caption">
 											<h4 style="font-size:16px">${item.caption}</h4>
@@ -122,7 +122,7 @@ New Products
 -->
 		<div class="well well-small">
 			<h3>New Products</h3>
-			<h4>${listProHighlight.size()}</h4>
+			<h4>${listProNew.size()}</h4>
 			<hr class="soften" />
 			<div class="row-fluid">
 				<div id="newProductCar" class="carousel slide">
@@ -135,7 +135,7 @@ New Products
 											title="add to cart"><span class="icon-search"></span>
 											QUICK VIEW</a> <a href="#" class="tag"></a> <a
 											href="product_details.html"><img
-											src="<c:url value="/assets/user/img/new-product/new-product-1.jpg"/>"
+											src="<c:url value="/assets/user/img/new-product-1.jpg"/>"
 											alt="bootstrap-ring"></a>
 									</div>
 								</li>
@@ -236,9 +236,12 @@ New Products
 						<div class="thumbnail">
 							<a class="zoomTool" href="product_details.html"
 								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product-detail/${item.id}"><img
-								src="<c:url value="/assets/user/img/${item.img}"/>"
-								alt=""></a>
+								VIEW</a>
+								<a href="product-detail/${item.product_id}">
+									<c:forEach var="color" items="${item.listColor}">
+										<img src="<c:url value="/assets/user/img/${color.img}"/>"alt="">
+									</c:forEach>
+								</a>
 							<div class="caption">
 								<h5>${item.productname}</h5>
 								<h4>
