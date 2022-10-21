@@ -73,6 +73,12 @@
  		GROUP BY GROUP BY p.product_id, c.product_id
  	</select>
  	<select id="getProductByCategory" resultType="product" resultMap="productMap" parameterType="int" >
- 		
+ 		SELECT p.product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
+ 		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
+ 		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
+ 		FROM product AS p JOIN product_color AS c JOIN category AS cat
+ 		ON p.product_id=c.product_id
+ 		ON p.id_category = cat.id_category
+ 		GROUP BY p.product_id, c.product_id
  	</select>
  </mapper>

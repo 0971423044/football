@@ -10,7 +10,7 @@
 			<div class="well well-small">
 				<ul class="nav nav-list">
 					<c:forEach var="item" items="${listCat}">
-						<li><a href='<c:url value="/product-cat/"/>'>
+						<li><a href='<c:url value="/trang-chu/product-cat/${item.id_category}"/>'>
 						<span
 								class="icon-circle-bl	ank"></span>${item.name}</a></li>
 					</c:forEach>

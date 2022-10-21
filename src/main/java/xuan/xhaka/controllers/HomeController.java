@@ -46,12 +46,13 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/trang-chu/product")
-	
 	public ModelAndView showProduct()
 	{
 		ModelAndView mav = new ModelAndView("user/product");
 		
 		return mav;
 	}
+	
+	
 
 }
