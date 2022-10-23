@@ -19,5 +19,21 @@ public class AdminController {
 	{
 		return "admin/index";
 	}
+	
+	@RequestMapping(value={"/admin/products"}, method=RequestMethod.GET)
+	public String showProductManage()
+	{
+		return "admin/products";
+	}
+	@RequestMapping(value={"/admin/categories"}, method=RequestMethod.GET)
+	public String showCategoryManage()
+	{
+		return "admin/products";
+	}
+	@RequestMapping(value={"/admin/users"}, method=RequestMethod.GET)
+	public String showUserManage()
+	{
+		return "admin/products";
+	}
 
 }
