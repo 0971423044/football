@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>  
 <title>Home page</title>
 <body>
 
@@ -10,9 +11,9 @@
 			<div class="well well-small">
 				<ul class="nav nav-list">
 					<c:forEach var="item" items="${listCat}">
-						<li><a href='<c:url value="/trang-chu/product-cat/${item.id_category}"/>'>
-						<span
-								class="icon-circle-bl	ank"></span>${item.name}</a></li>
+						<li><a
+							href='<c:url value="/trang-chu/product-cat/${item.id_category}"/>'>
+								<span class="icon-circle-bl	ank"></span>${item.name}</a></li>
 					</c:forEach>
 
 					<li><a class="totalInCart" href="cart.html"><strong>Total
@@ -30,8 +31,9 @@
 				</p>
 			</div>
 			<div class="well well-small">
-				<a href="#"> 
-				<img src='<c:url value="/assets/user/img/paypal.jpg"/>' alt="payment method paypal" ></a>
+				<a href="#"> <img
+					src='<c:url value="/assets/user/img/paypal.jpg"/>'
+					alt="payment method paypal"></a>
 			</div>
 
 			<a class="shopBtn btn-block" href="#">Upcoming products <br>
@@ -99,124 +101,68 @@
 								<div class="item">
 							</c:if>
 
-										<img style="width: 100%"
-											src="<c:url value="/assets/user/img/${item.img}"/>"
-											alt="product 1">
-										<div class="carousel-caption">
-											<h4 style="font-size:16px">${item.caption}</h4>
-										
-											<p style="font-size:16px">
-												<span>${item.content}</span>
-											</p>
-										</div>
-									</div>
-						</c:forEach>
+							<img style="width: 100%"
+								src="<c:url value="/assets/user/img/${item.img}"/>"
+								alt="product 1">
+							<div class="carousel-caption">
+								<h4 style="font-size: 14px">${item.caption}</h4>
+								<br/>
+								<p style="font-size: 14px">
+									<span>${item.content}</span>
+								</p>
+							</div>
+					</div>
+					</c:forEach>
 				</div>
 				<a class="left carousel-control" href="#myCarousel"
 					data-slide="prev">&lsaquo;</a> <a class="right carousel-control"
 					href="#myCarousel" data-slide="next">&rsaquo;</a>
 			</div>
-		</div>
+ 		</div>
 		<!--
 New Products
 -->
 		<div class="well well-small">
 			<h3>New Products</h3>
-			<h4>${listProNew.size()}</h4>
 			<hr class="soften" />
 			<div class="row-fluid">
 				<div id="newProductCar" class="carousel slide">
 					<div class="carousel-inner">
-						<div class="item active">
-							<ul class="thumbnails">
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html"
-											title="add to cart"><span class="icon-search"></span>
-											QUICK VIEW</a> <a href="#" class="tag"></a> <a
-											href="product_details.html"><img
-											src="<c:url value="/assets/user/img/new-product-1.jpg"/>"
-											alt="bootstrap-ring"></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html"
-											title="add to cart"><span class="icon-search"></span>
-											QUICK VIEW</a> <a href="#" class="tag"></a> <a
-											href="product_details.html"><img
-											src="<c:url value="/assets/user/img/new-product/new-product-2.jpg"/>"
-											alt=""></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html"
-											title="add to cart"><span class="icon-search"></span>
-											QUICK VIEW</a> <a href="#" class="tag"></a> <a
-											href="product_details.html"><img
-											src="<c:url value="/assets/user/img/new-product/new-product-3.jpg"/>"
-											alt=""></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html"
-											title="add to cart"><span class="icon-search"></span>
-											QUICK VIEW</a> <a href="product_details.html"><img
-											src="<c:url value="/assets/user/img/new-product/new-product-5.jpg"/>"
-											alt=""></a>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="item">
-							<ul class="thumbnails">
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html"
-											title="add to cart"><span class="icon-search"></span>
-											QUICK VIEW</a> <a href="product_details.html"><img
-											src="<c:url value="/assets/user/img/new-product/new-product-6.jpg"/>"
-											alt=""></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html"
-											title="add to cart"><span class="icon-search"></span>
-											QUICK VIEW</a> <a href="product_details.html"><img
-											src="<c:url value="/assets/user/img/new-product/new-product-7.jpg"/>"
-											alt=""></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html"
-											title="add to cart"><span class="icon-search"></span>
-											QUICK VIEW</a> <a href="product_details.html"><img
-											src="<c:url value="/assets/user/img/new-product/new-product-8.jpg"/>"
-											alt=""></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html"
-											title="add to cart"><span class="icon-search"></span>
-											QUICK VIEW</a> <a href="product_details.html"><img
-											src="<c:url value="/assets/user/img/new-product/new-product-11.jpg"/>"
-											alt=""></a>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
+					<c:if test="${listProNew.size()>0}">
+							<div class="item active">
+								<ul class="thumbnails">
+								<c:forEach  var="item" items="${listProNew}" varStatus="loop" >
+									<li class="span4">
+												<div class="thumbnail">
+													<a class="zoomTool" href="product_details.html"
+														title="add to cart"><span class="icon-search"></span>
+														QUICK VIEW</a> <a href="product-detail/${item.product_id}">
+														<c:forEach var="color" items="${item.listColor}">
+															<img src="<c:url value="/assets/user/img/${color.img}"/>"
+																alt="">
+														</c:forEach>
+													</a>
+												</div>
+									</li>
+									<c:if test="${(loop.index + 1) % 3==0 || (loop.index + 1)==listProNew.size()}">
+											</ul>
+										</div>
+										<c:if test="${(loop.index+1)<listProNew.size()}">
+											<div class="item">
+												<ul class="thumbnails">
+										</c:if>
+									</c:if>
+								</c:forEach>
+							</div>
+								
+					</c:if>
+					
 					<a class="left carousel-control" href="#newProductCar"
 						data-slide="prev">&lsaquo;</a> <a class="right carousel-control"
 						href="#newProductCar" data-slide="next">&rsaquo;</a>
 				</div>
 			</div>
-			
+
 		</div>
 		<!--
 	Featured Products
@@ -229,32 +175,39 @@ New Products
 			</h3>
 			<hr class="soften" />
 			<div class="row-fluid">
-				<c:if test="${listProHighlight.size()>0 }">
-				<ul class="thumbnails">
-					<c:forEach var="item" items="${listProHighlight}" varStatus="loop">
-					<li class="span4">
-						<div class="thumbnail">
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a>
-								<a href="product-detail/${item.product_id}">
-									<c:forEach var="color" items="${item.listColor}">
-										<img src="<c:url value="/assets/user/img/${color.img}"/>"alt="">
-									</c:forEach>
-								</a>
-							<div class="caption">
-								<h5>${item.productname}</h5>
-								<h4>
-									<a class="defaultBtn" href="product_details.html"
-										title="Click to view"><span class="icon-zoom-in"></span></a> <a
-										class="shopBtn" href="#" title="add to cart"><span
-										class="icon-plus"></span></a> <span class="pull-right">${item.price}</span>
-								</h4>
-							</div>
-						</div>
-					</li>
-					</c:forEach>
-				</ul>
+			
+				<c:if test="${listProHighlight.size()>0}">
+					<ul class="thumbnails">
+						<c:forEach var="item" items="${listProHighlight}" varStatus="loop">
+							<li class="span4">
+								<div class="thumbnail">
+									<a class="zoomTool" href="product_details.html"
+										title="add to cart"><span class="icon-search"></span>
+										QUICK VIEW</a> <a href="product-detail/${item.product_id}"> 
+										<c:forEach
+											var="color" items="${item.listColor}">
+											<img src="<c:url value="/assets/user/img/${color.img}"/>"
+												alt="">
+										</c:forEach>
+									</a>
+									<div class="caption">
+										<h5>${item.productname}</h5>
+										<h4>
+											<a class="defaultBtn" href="product_details.html"
+												title="Click to view"><span class="icon-zoom-in"></span></a>
+											<a class="shopBtn" href="#" title="add to cart"><span
+												class="icon-plus"></span></a> <span class="pull-right"><fmt:formatNumber type="number" groupingUsed="true" value="${item.price}"/>$</span>
+										</h4>
+									</div>
+								</div>
+							</li>
+							<c:if test="${(loop.index+1)%3 == 0 || (loop.index+1) == listProHighlight.size() }">
+					</ul>
+								<c:if test="${(loop.index+1) < listProHighlight.size()}">
+									<ul class="thumbnails">
+								</c:if>	
+							</c:if>
+						</c:forEach>
 				</c:if>
 			</div>
 		</div>

@@ -49,7 +49,7 @@
  		WHERE 1=1 AND p.product_new=true
  		GROUP BY p.product_id, c.product_id
  		ORDER BY RAND()
- 		LIMIT 8
+ 		LIMIT 6
  	</select>
  	<select id="getProductsHighlight" resultType="product" resultMap="productMap">
  		SELECT p.product_id, p.id_category, p.productname, p.size, p.price, p.sale, 

@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xuan.xhaka.dao.CategoryMapper">
 	<resultMap type="category" id="result">
-		<id property="id" column="id" />
+		<id property="id_category" column="id_category" />
 		<result property="name" column="name" />
 		<result property="description" column="description" />
 	</resultMap>
