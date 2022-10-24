@@ -31,6 +31,17 @@ public class ProductMapper {
 		return listProNew;
 	}
 	
-
+	public List<Product> getListProByCategory(int id_category)
+	{
+		SqlSession session = MyBatisUtilConfig.getSqlSessionFactory().openSession();
+		List<Product> listProByCategory = session.selectList("getProductByCategory", id_category);
+		
+		session.commit();
+		session.close();
+		
+		return listProByCategory;
+		
+		
+	}
 
 }

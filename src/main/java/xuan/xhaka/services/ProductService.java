@@ -8,4 +8,5 @@ import xuan.xhaka.entity.Product;
 public interface ProductService {
 	public List<Product> getListProductsHighligght();
 	public List<Product> getListProductsNew();
+	public List<Product> getListProByCategory(int id_category);
 }

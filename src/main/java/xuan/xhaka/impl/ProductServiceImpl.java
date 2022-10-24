@@ -29,4 +29,11 @@ public class ProductServiceImpl implements ProductService{
 		return listProNew;
 	}
 
+	@Override
+	public List<Product> getListProByCategory(int id_category) {
+		// TODO Auto-generated method stub
+		List<Product> listProByCat = proMapper.getListProByCategory(id_category);
+		return listProByCat;
+	}
+
 }

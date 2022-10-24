@@ -66,19 +66,28 @@
  		SELECT p.product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
  		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
  		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
- 		FROM product AS p JOIN product_color AS c  JOIN category AS cat
- 		ON p.id_category=cat.id_category
- 		ON p.product_id=c.product_id 
- 		WHERE cat.name='Socks'
+ 		FROM product AS p   
+ 		JOIN category AS cat ON p.id_category=cat.id_category
+ 		JOIN product_color AS c ON p.product_id=c.product_id 
+ 		WHERE 1=1 and cat.name='Socks'
  		GROUP BY GROUP BY p.product_id, c.product_id
  	</select>
- 	<select id="getProductByCategory" resultType="product" resultMap="productMap" parameterType="int" >
+ 	<select id="getProductByCategory" parameterType="int" resultType="product" resultMap="productMap">
  		SELECT p.product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
  		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
  		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
- 		FROM product AS p JOIN product_color AS c JOIN category AS cat
- 		ON p.product_id=c.product_id
- 		ON p.id_category = cat.id_category
+ 		FROM product AS p  
+ 		WHERE 1=1 and cat.id_category = #{id_category}
+ 		JOIN category AS cat ON p.id_category = cat.id_category
+ 		JOIN product_color AS c ON p.product_id=c.product_id
  		GROUP BY p.product_id, c.product_id
+ 	</select>
+ 	<select id="getProByPaging" parameterType="java.util.HashMap" resultType="product" resultMap="productMap" >
+ 		SELECT p.product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
+ 		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
+ 		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
+ 		FROM product AS p JOIN product_color AS c ON p.product_id=c.product_id
+ 		GROUP BY p.product_id, c.product_id
+ 		LIMIT #{start},#{end}
  	</select>
  </mapper>
