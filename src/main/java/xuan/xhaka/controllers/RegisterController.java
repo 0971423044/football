@@ -10,7 +10,7 @@ import xuan.xhaka.entity.Account;
 
 @Controller
 public class RegisterController {
-	@RequestMapping(value="/register", method=RequestMethod.GET)
+	@RequestMapping(value="/trang-chu/register", method=RequestMethod.GET)
 	public ModelAndView showFormRegister()
 	{
 		Account acc = new Account();
@@ -19,7 +19,7 @@ public class RegisterController {
 		mav.addObject("acc",acc);
 		return mav;
 	}
-	@RequestMapping(value="/register", method=RequestMethod.POST)
+	@RequestMapping(value="/trang-chu/register", method=RequestMethod.POST)
 	public ModelAndView processRegister(@ModelAttribute("acc") Account acc)
 	{
 		
