@@ -138,7 +138,7 @@ New Products
 												<div class="thumbnail">
 													<a class="zoomTool" href="product_details.html"
 														title="add to cart"><span class="icon-search"></span>
-														QUICK VIEW</a> <a href='<c:url value="/product-detail/${item.product_id}"/>'>
+														QUICK VIEW</a> <a href='<c:url value="/trang-chu/product-detail/${item.product_id}"/>'>
 														<c:forEach var="color" items="${item.listColor}">
 															<img src="<c:url value="/assets/user/img/${color.img}"/>"
 																alt="">
@@ -185,7 +185,7 @@ New Products
 								<div class="thumbnail">
 									<a class="zoomTool" href="product_details.html"
 										title="add to cart"><span class="icon-search"></span>
-										QUICK VIEW</a> <a href='<c:url value="/product-detail/${item.product_id}"/>'> 
+										QUICK VIEW</a> <a href='<c:url value="/trang-chu/product-detail/${item.product_id}"/>'> 
 										<c:forEach
 											var="color" items="${item.listColor}">
 											<img src="<c:url value="/assets/user/img/${color.img}"/>"

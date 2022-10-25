@@ -78,7 +78,7 @@ Body Section
 New Products
 -->
 	<div class="well well-small">
-	<h3>Our Products </h3>
+	<h3>All of Products </h3>
 		<div class="row-fluid">
 		  <ul class="thumbnails">
 			<li class="span4">

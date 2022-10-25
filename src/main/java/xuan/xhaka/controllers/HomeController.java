@@ -58,7 +58,7 @@ public class HomeController {
 		
 		return mav;
 	}
-	@RequestMapping(value="/product-detail/{product_id}")
+	@RequestMapping(value="/trang-chu/product-detail/{product_id}")
 	public ModelAndView showProductDetail(@PathVariable("product_id") int product_id)
 	{
 			ModelAndView mav = new ModelAndView();

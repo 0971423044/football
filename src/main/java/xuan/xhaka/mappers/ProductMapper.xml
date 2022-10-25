@@ -39,7 +39,7 @@
  		<result property="img" column="img" />
  		<result property="id_product" column="product_id"/>
  	</resultMap> -->
- 	<select id="getProductById" resultMap="productMap" resultType="product">
+ 	<select id="getProductById" resultMap="productMap" resultType="product" parameterType="int">
  		SELECT p.product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
  		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
  		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
