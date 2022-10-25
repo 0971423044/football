@@ -51,4 +51,12 @@ public class ProductServiceImpl implements ProductService{
 		return product;
 	}
 
+	@Override
+	public List<Product> getListProducts() {
+		// TODO Auto-generated method stub
+		List<Product> listPro = proMapper.getListProduct();
+		
+		return listPro;
+	}
+
 }

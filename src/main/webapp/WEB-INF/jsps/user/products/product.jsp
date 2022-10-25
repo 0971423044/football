@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
 <title>Product Detail</title>
-</head>
 <body>
 	<!-- 
 Body Section 
@@ -16,26 +11,18 @@ Body Section
 			<div class="well well-small">
 				<ul class="nav nav-list">
 					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Fashion</a></li>
+							class="icon-chevron-right"></span>Home</a></li>
 					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Watches</a></li>
+							class="icon-chevron-right"></span>Product</a></li>
 					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Fine Jewelry</a></li>
+							class="icon-chevron-right"></span>Service</a></li>
 					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Fashion Jewelry</a></li>
+							class="icon-chevron-right"></span>Contact</a></li>
 					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Engagement & Wedding</a></li>
+							class="icon-chevron-right"></span>About</a></li>
 					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Men's Jewelry</a></li>
-					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Vintage & Antique</a></li>
-					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Loose Diamonds </a></li>
-					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>Loose Beads</a></li>
-					<li><a href="products.html"><span
-							class="icon-chevron-right"></span>See All Jewelry & Watches</a></li>
-					<li style="border: 0">&nbsp;</li>
+							class="icon-chevron-right"></span>Cart</a></li>
+	
 					<li><a class="totalInCart" href="cart.html"><strong>Total
 								Amount <span class="badge badge-warning pull-right"
 								style="line-height: 18px;">$448.42</span>
@@ -595,4 +582,3 @@ Body Section
 	</div>
 	<!-- Body wrapper -->
 </body>
-</html>

@@ -12,4 +12,5 @@ public interface ProductService {
 	public List<Product> getListProByCategory(int id_category);
 	public List<Product> getListProByPaging(Map<String, Integer> pagingMap);
 	public Product getProductById(int product_id);
+	public List<Product> getListProducts();
 }

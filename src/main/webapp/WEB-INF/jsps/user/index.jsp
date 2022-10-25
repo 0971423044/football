@@ -44,12 +44,12 @@
 						<a class="zoomTool" href="product_details.html"
 							title="add to cart"><span class="icon-search"></span> QUICK
 							VIEW</a> <img
-							src="<c:url value="/assets/user/img/product-left/product-left-1.jpg"/>"
+							src="<c:url value="/assets/user/img/cap-1.jpg"/>"
 							alt="Shirt pink">
 						<div class="caption">
 							<h4>
 								<a class="defaultBtn" href="product_details.html">VIEW</a> <span
-									class="pull-right">$22.00</span>
+									class="pull-right">100$</span>
 							</h4>
 						</div>
 					</div>
@@ -60,12 +60,12 @@
 						<a class="zoomTool" href="product_details.html"
 							title="add to cart"><span class="icon-search"></span> QUICK
 							VIEW</a> <img
-							src="<c:url value="/assets/user/img/product-left/product-left-2.jpg"/>"
+							src="<c:url value="/assets/user/img/cap-2.jpg"/>"
 							alt="Shirt red">
 						<div class="caption">
 							<h4>
 								<a class="defaultBtn" href="product_details.html">VIEW</a> <span
-									class="pull-right">$22.00</span>
+									class="pull-right">120$</span>
 							</h4>
 						</div>
 					</div>
@@ -76,12 +76,12 @@
 						<a class="zoomTool" href="product_details.html"
 							title="add to cart"><span class="icon-search"></span> QUICK
 							VIEW</a> <img
-							src="<c:url value="/assets/user/img/product-left/product-left-3.jpg"/>"
+							src="<c:url value="/assets/user/img/cap-3.jpg"/>"
 							alt="Shirt black">
 						<div class="caption">
 							<h4>
 								<a class="defaultBtn" href="product_details.html">VIEW</a> <span
-									class="pull-right">$22.00</span>
+									class="pull-right">150$</span>
 							</h4>
 						</div>
 					</div>
@@ -136,7 +136,7 @@ New Products
 												<div class="thumbnail">
 													<a class="zoomTool" href="product_details.html"
 														title="add to cart"><span class="icon-search"></span>
-														QUICK VIEW</a> <a href="<c:url value="/product-detail/${item.product_id}"/>">
+														QUICK VIEW</a> <a href='<c:url value="/product-detail/${item.product_id}"/>'>
 														<c:forEach var="color" items="${item.listColor}">
 															<img src="<c:url value="/assets/user/img/${color.img}"/>"
 																alt="">
@@ -183,7 +183,7 @@ New Products
 								<div class="thumbnail">
 									<a class="zoomTool" href="product_details.html"
 										title="add to cart"><span class="icon-search"></span>
-										QUICK VIEW</a> <a href="/product-detail/${item.product_id}"> 
+										QUICK VIEW</a> <a href='<c:url value="/product-detail/${item.product_id}"/>'> 
 										<c:forEach
 											var="color" items="${item.listColor}">
 											<img src="<c:url value="/assets/user/img/${color.img}"/>"

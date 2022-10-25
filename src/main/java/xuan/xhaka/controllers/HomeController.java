@@ -51,11 +51,14 @@ public class HomeController {
 	@RequestMapping(value="/trang-chu/product")
 	public ModelAndView showProduct()
 	{
-		ModelAndView mav = new ModelAndView("user/product");
+		ModelAndView mav = new ModelAndView("user/products/listProduct");
+		List<Product> listPro = proService.getListProducts();
+		
+		mav.addObject("listPro", listPro);
 		
 		return mav;
 	}
-	@RequestMapping(value="/product-detail/${product_id}")
+	@RequestMapping(value="/product-detail/{product_id}")
 	public ModelAndView showProductDetail(@PathVariable("product_id") int product_id)
 	{
 			ModelAndView mav = new ModelAndView();

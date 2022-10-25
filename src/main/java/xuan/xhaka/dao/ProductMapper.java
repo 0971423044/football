@@ -62,7 +62,16 @@ public class ProductMapper {
 		session.close();
 		
 		return product;
+	}
+	public List<Product> getListProduct()
+	{
+		SqlSession session = MyBatisUtilConfig.getSqlSessionFactory().openSession();
+		List<Product> listPro = session.selectList("getAllProducts");
 		
+		session.commit();
+		session.close();
+		
+		return listPro;
 	}
 
 }
