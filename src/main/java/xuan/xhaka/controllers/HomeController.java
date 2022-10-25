@@ -5,12 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import xuan.xhaka.dao.CategoryMapper;
 import xuan.xhaka.entity.Category;
+import xuan.xhaka.entity.Product;
 import xuan.xhaka.impl.CategoryServiceImpl;
 import xuan.xhaka.impl.MenuServiceImpl;
 import xuan.xhaka.impl.ProductServiceImpl;
@@ -41,6 +43,7 @@ public class HomeController {
 		mav.addObject("listProHighlight", proService.getListProductsHighligght());
 		mav.addObject("listProNew", proService.getListProductsNew());
 		mav.setViewName("user/index");
+		
 		//model.addAttribute("listCat", listCategories);
 		return mav;
 	}
@@ -52,7 +55,16 @@ public class HomeController {
 		
 		return mav;
 	}
-	
+	@RequestMapping(value="/product-detail/${product_id}")
+	public ModelAndView showProductDetail(@PathVariable("product_id") int product_id)
+	{
+			ModelAndView mav = new ModelAndView();
+			Product product = proService.getProductById(product_id);
+			mav.addObject("product", product);
+			mav.setViewName("user/products/product");
+			
+			return mav;
+	}
 	
 
 }

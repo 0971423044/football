@@ -1,6 +1,7 @@
 package xuan.xhaka.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,20 @@ public class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		List<Product> listProByCat = proMapper.getListProByCategory(id_category);
 		return listProByCat;
+	}
+
+	@Override
+	public List<Product> getListProByPaging(Map<String,Integer> pagingMap) {
+		// TODO Auto-generated method stub
+		List<Product> listProByPaging = proMapper.getListProByPaging(pagingMap);
+		return listProByPaging;
+	}
+
+	@Override
+	public Product getProductById(int product_id) {
+		// TODO Auto-generated method stub
+		Product product = proMapper.getProductById(product_id);
+		return product;
 	}
 
 }

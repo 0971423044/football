@@ -18,13 +18,18 @@
  		<result property="size" column="size" />
  		<result property="create_at" column="create_at" />
  		<result property="updated_at" column="updated_at" />
+ 		<association property="category" javaType="category">
+ 			<id property="id_category" column="id_category"/>
+ 			<result property="name" column="name" />
+ 			<result property="name" column="name"/>
+ 		</association>
  		<collection property="listColor" javaType="List" ofType="xuan.xhaka.entity.ProductColor" column="product_id">
  			<result property="id_color" column="id_color"/>
  			<result property="name_color" column="name_color"/>
  			<result property="code" column="code"/>
  			<result property="img" column="img"/>
  		</collection>
- 		<collection property="category" ofType="category" column="id_category"/>
+ 		
  		
  	</resultMap>
  	<!-- <resultMap id="colorMap" type="productColor">
@@ -34,6 +39,15 @@
  		<result property="img" column="img" />
  		<result property="id_product" column="product_id"/>
  	</resultMap> -->
+ 	<select id="getProductById" resultMap="productMap" resultType="product">
+ 		SELECT p.product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
+ 		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
+ 		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
+ 		FROM product AS p JOIN product_color AS c ON p.product_id=c.product_id
+ 		WHERE 1=1 AND p.product_id=#{product_id}
+ 		GROUP BY p.product_id, c.product_id
+ 		LIMIT 1
+ 	</select>
  	<select id="getAllProducts" resultType="product" resultMap="productMap">
  		SELECT p.product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
  		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
@@ -77,9 +91,9 @@
  		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
  		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
  		FROM product AS p  
- 		WHERE 1=1 and cat.id_category = #{id_category}
  		JOIN category AS cat ON p.id_category = cat.id_category
  		JOIN product_color AS c ON p.product_id=c.product_id
+ 		WHERE 1=1 and cat.id_category = #{id_category}
  		GROUP BY p.product_id, c.product_id
  	</select>
  	<select id="getProByPaging" parameterType="java.util.HashMap" resultType="product" resultMap="productMap" >

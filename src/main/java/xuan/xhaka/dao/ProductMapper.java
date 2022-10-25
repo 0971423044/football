@@ -1,6 +1,7 @@
 package xuan.xhaka.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -40,7 +41,27 @@ public class ProductMapper {
 		session.close();
 		
 		return listProByCategory;
+	}
+	public List<Product> getListProByPaging(Map<String,Integer> pagingMap )
+	{
+		SqlSession session = MyBatisUtilConfig.getSqlSessionFactory().openSession();
+		List<Product> listProByPaging= session.selectList("getProByPaging", pagingMap);
 		
+		session.commit();
+		session.close();
+		
+		return listProByPaging;
+		
+	}
+	public Product getProductById( int product_id)
+	{
+		SqlSession session = MyBatisUtilConfig.getSqlSessionFactory().openSession();
+		
+		Product product = (Product) session.selectOne("getProductById", product_id);
+		session.commit();
+		session.close();
+		
+		return product;
 		
 	}
 
