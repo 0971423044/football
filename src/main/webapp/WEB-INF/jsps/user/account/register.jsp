@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>  
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -117,19 +120,43 @@
 						<br /> Enter your e-mail address to create an account.<br />
 						<br />
 						<br />
-						<form>
+						<form:form action="/register" method="post" modelAttribute="acc">
 							<div class="control-group">
+								<label class="control-label" for="inputUsername">Username</label>
+								<div class="controls">
+									<form:input type="text" class="span3" placeholder="Please input your usename" path="username"/>
+								</div>
 								<label class="control-label" for="inputEmail">E-mail
 									address</label>
 								<div class="controls">
-									<input class="span3" type="text" placeholder="Email">
+									<form:input type="email" class="span3" placeholder="Please input your email" path="email"/>
+								</div>
+								<label class="control-label" for="inputPassword">Password
+								</label>
+								<div class="controls">
+									<form:input type="password" class="span3" placeholder="Please input your password" path="password"/>
+								</div>
+								<label class="control-label" for="inputFullname">Fullname
+								</label>
+								<div class="controls">
+									<form:input type="text" class="span3" placeholder="Please input your fullname" path="fullname"/>
+								</div>
+								<label class="control-label" for="inputAddress">Address
+								</label>
+								<div class="controls">
+									<form:input type="text" class="span3" placeholder="Please input your address" path="address"/>
+								</div>
+								<label class="control-label" for="inputPhone">Phone
+								</label>
+								<div class="controls">
+									<form:input type="text" class="span3" placeholder="Please input your phone" path="phone"/>
 								</div>
 							</div>
 							<div class="controls">
 								<button type="submit" class="btn block">Create Your
 									Account</button>
 							</div>
-						</form>
+						</form:form>
 					</div>
 				</div>
 				<div class="span1">&nbsp;</div>

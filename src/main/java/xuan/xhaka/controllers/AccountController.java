@@ -8,14 +8,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AccountController {
-	@RequestMapping(value="/register", method=RequestMethod.GET)
-	public ModelAndView showFormRegister()
-	{
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user/account/register");
-		
-		return mav;
-	}
 	
 }
 
