@@ -67,14 +67,14 @@ Lower Header Section
 -->
 	<div class="container">
 		<div id="gototop"></div>
-	<%@include file="/WEB-INF/jsps/layouts/header.jsp" %>
+	<%@include file="/WEB-INF/jsps/layouts/user/header.jsp" %>
 		<!-- Body section -->
 
 		<decorator:body />
 
 		<!-- Footer
 		-->
-	<%@include file="/WEB-INF/jsps/layouts/footer.jsp" %>
+	<%@include file="/WEB-INF/jsps/layouts/user/footer.jsp" %>
 	
 	</div>
 	<a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>

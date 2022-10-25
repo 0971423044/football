@@ -123,7 +123,7 @@ Body Section
 						<h3>${product.productname}</h3>
 						<hr class="soft" />
 
-						<form class="form-horizontal qtyFrm">
+						<form class="form-horizontal qtyFrm" method="get" action="<c:url value="addCart/${product.product_id}"/>">
 							<div class="control-group">
 								<label class="control-label"><span><fmt:formatNumber type="number" groupingUsed="true" value="${product.price}"></fmt:formatNumber>$</span></label>
 								<div class="controls">
@@ -180,7 +180,11 @@ Body Section
 						${product.detail}
 					</div>
 					<div class="tab-pane fade" id="profile">
-						<c:forEach var="item" items="${listProByCat}" varStatus="loop">
+					<c:set var="countList" value="${listProByCat.size()}"/>
+						<c:if test="${listProByCat.size()>3}">
+							<c:set var="countList" value="3"/>
+						</c:if>
+						<c:forEach var="item" items="${listProByCat}" begin="1" end="${countList}" varStatus="loop">
 							<div class="row-fluid">
 								<div class="span2">
 									<c:forEach var="color" items="${item.listColor}">

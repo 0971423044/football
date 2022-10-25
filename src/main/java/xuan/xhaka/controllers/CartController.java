@@ -31,7 +31,7 @@ public class CartController {
 		
 		session.setAttribute("Cart", cart);
 		
-		return "redirect:" + request.getHeader("Referer");
+		return "redirect:"+request.getHeader("Referer");
 	}
 
 }
