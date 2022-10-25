@@ -63,7 +63,10 @@ public class HomeController {
 	{
 			ModelAndView mav = new ModelAndView();
 			Product product = proService.getProductById(product_id);
+			int id_category = product.getId_category();
+			List<Product> listProByCat = proService.getListProByCategory(id_category);
 			mav.addObject("product", product);
+			mav.addObject("listProByCat", listProByCat);
 			mav.setViewName("user/products/product");
 			
 			return mav;
