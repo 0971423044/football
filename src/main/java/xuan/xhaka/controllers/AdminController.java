@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AdminController {
 	
-	@RequestMapping(value= {"/admin/"}, method=RequestMethod.GET)
+	@RequestMapping(value= {"/quan-tri/"}, method=RequestMethod.GET)
 	public String showAdminPage()
 	{
 		return "admin/index";

@@ -96,8 +96,8 @@ Body Section
 		<div class="span9">
 			<ul class="breadcrumb">
 				<li><a href="index.html">Home</a> <span class="divider">/</span></li>
-				<li><a href="products.html">Items</a> <span class="divider">/</span></li>
-				<li class="active">Preview</li>
+				<li><a href="products.html">Product</a> <span class="divider">/</span></li>
+				<li class="active">Detail</li>
 			</ul>
 			<div class="well well-small">
 				<div class="row-fluid">

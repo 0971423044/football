@@ -40,7 +40,7 @@
 								<div class="thumbnail">
 									<a class="zoomTool" href="product_details.html"
 										title="add to cart"><span class="icon-search"></span>
-										QUICK VIEW</a> <a href="<c:url value="/product-detail/${item.product_id}"/>"> 
+										QUICK VIEW</a> <a href="<c:url value="/trang-chu/product-detail/${item.product_id}"/>"> 
 										<c:forEach
 											var="color" items="${item.listColor}">
 											<img src="<c:url value="/assets/user/img/${color.img}"/>"
@@ -50,7 +50,7 @@
 									<div class="caption">
 										<h5>${item.productname}</h5>
 										<h4>
-											<a class="defaultBtn" href="<c:url value="/product-detail/${item.product_id}"/>"
+											<a class="defaultBtn" href="<c:url value="/trang-chu/product-detail/${item.product_id}"/>"
 												title="Click to view"><span class="icon-zoom-in"></span></a>
 											<a class="shopBtn" href="#" title="add to cart"><span
 												class="icon-plus"></span></a> <span class="pull-right"><fmt:formatNumber type="number" groupingUsed="true" value="${item.price}"/>$</span>
