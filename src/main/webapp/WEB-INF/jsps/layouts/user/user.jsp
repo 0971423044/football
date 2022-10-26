@@ -49,14 +49,14 @@
 							class="icon-youtube"></span></a> <a href="#"><span
 							class="icon-tumblr"></span></a>
 					</div>
-					<a class="active" href="index.html"> <span class="icon-home"></span>
+					<a class="active" href="<c:url value="/trang-chu/"/>"> <span class="icon-home"></span>
 						Home
-					</a> <a href="#"><span class="icon-user"></span> My Account</a> <a
-						href='<c:url value="/register"/>'><span class="icon-edit"></span> Free
+					</a> <a href="/trang-chu/your-account"><span class="icon-user"></span> My Account</a> <a
+						href='<c:url value="/trang-chu/register"/>'><span class="icon-edit"></span> Free
 						Register </a> <a href="contact.html"><span class="icon-envelope"></span>
-						Contact us</a> <a href="cart.html"><span
-						class="icon-shopping-cart"></span> 2 Item(s) - <span
-						class="badge badge-warning"> $448.42</span></a>
+						Contact us</a> <a href="<c:url value="/trang-chu/your-cart"/>"><span
+						class="icon-shopping-cart"></span> ${TotalQuantityCart} - items <span
+						class="badge badge-warning"> ${TotalPriceCart} $</span></a>
 				</div>
 			</div>
 		</div>
@@ -67,14 +67,14 @@ Lower Header Section
 -->
 	<div class="container">
 		<div id="gototop"></div>
-	<%@include file="/WEB-INF/jsps/layouts/header.jsp" %>
+	<%@include file="/WEB-INF/jsps/layouts/user/header.jsp" %>
 		<!-- Body section -->
 
 		<decorator:body />
 
 		<!-- Footer
 		-->
-	<%@include file="/WEB-INF/jsps/layouts/footer.jsp" %>
+	<%@include file="/WEB-INF/jsps/layouts/user/footer.jsp" %>
 	
 	</div>
 	<a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>

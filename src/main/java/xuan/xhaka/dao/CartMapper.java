@@ -20,11 +20,12 @@ public class CartMapper {
 		
 		Product product = proMapper.getProductById(product_id);
 		
-		if(product!=null && cart.containsKey(product))
+		if(product != null && cart.containsKey(product_id))
 		{
 			itemCart = cart.get(product_id);
 			
-			itemCart.setQuantity(itemCart.getQuantity()+1);;
+			itemCart.setQuantity(itemCart.getQuantity() + 1);
+			itemCart.setTotalPrice(itemCart.getQuantity()*itemCart.getProduct().getPrice());
 			
 		}else {
 			itemCart.setProduct(product);

@@ -14,8 +14,7 @@
 		<div class="span4">
 			<div class="offerNoteWrapper">
 				<h1 class="dotmark">
-					<i class="icon-cut"></i> Twitter Bootstrap shopping cart HTML
-					template is available @ $14
+					<i class="icon-cut"></i> North London is Red
 				</h1>
 			</div>
 		</div>
@@ -24,7 +23,7 @@
 				<br> <strong> Support (24/7) : 0971423044 </strong><br>
 				<br>
 			</p>
-			<span class="btn btn-mini">[ 2 ] <span
+			<span class="btn btn-mini"><a href="<c:url value="/trang-chu/your-cart"/>">[ ${TotalQuantityCart} ]</a><span
 				class="icon-shopping-cart"></span></span> <span
 				class="btn btn-warning btn-mini">$</span> <span class="btn btn-mini">&pound;</span>
 			<span class="btn btn-mini">&euro;</span>
@@ -44,9 +43,16 @@ Navigation Bar Section
 			</a>
 			<div class="nav-collapse">
 				<ul class="nav">
-					<c:forEach var="item" items="${listMenus}">
+				<!-- <c:forEach var="item" items="${listMenus}">
 						<li class="active"><a href="index.html">${item.name}</a></li>
 					</c:forEach>
+				 -->
+					<li class="active"><a href="<c:url value="/trang-chu/"/>">Home</a></li>
+					<li class="active"><a href="<c:url value="/trang-chu/product"/>">Product</a></li>
+					<li class="active"><a href="<c:url value="/trang-chu/"/>">Service</a></li>
+					<li class="active"><a href="<c:url value="/trang-chu/"/>">Contact</a></li>
+					<li class="active"><a href="<c:url value="/trang-chu/"/>">About</a></li>
+					<li class="active"><a href="<c:url value="/trang-chu/your-cart"/>">Cart</a></li>
 					
 					
 				</ul>

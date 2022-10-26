@@ -1,8 +1,8 @@
-<decorators defaultdir="/WEB-INF/jsps/layouts">
-	<decorator name="user" page="user.jsp">
+<decorators defaultdir="/WEB-INF/jsps/layouts/">
+	<decorator name="user" page="user/user.jsp">
 		<pattern>/trang-chu/*</pattern>
 	</decorator>
-	<decorator name="admin" page="admin.jsp">
+	<decorator name="admin" page="admin/admin.jsp">
 		<pattern>/quan-tri/*</pattern>
 	</decorator>
 	

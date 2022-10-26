@@ -4,5 +4,29 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="xuan.xhaka.dao.AccountMapper">
  	<resultMap id="accountMap" type="account">
+ 		<id property="id" column="id" />
+ 		<result property="username" column="username"/>
+ 		<result property="email" column="email"/>
+ 		<result property="fullname" column="fullname"/>
+ 		<result property="address" column="address"/>
+ 		<result property="phone" column="phone"/>
+ 		<result property="password" column="password"/>
+ 		<result property="enabled" column="enabled"/>
+ 		<result property="role" column="role"/>
  	</resultMap>
+ 	
+ 	<select id="getAllAccounts" resultMap="accountMap" resultType="account">
+ 		SELECT * FROM account
+ 	</select>
+ 	<select id="getAccountByEmail" parameterType="String" resultMap="accountMap" resultType="account">
+ 		SELECT * FROM account as a WHERE a.email = #{email} 
+ 	</select>
+ 	<select id="getAccByEmailAndPass" parameterType="java.util.HashMap" resultMap="accountMap" resultType="account">
+ 		SELECT * FROM account as a WHERE a.email=#{email} AND a.password=#{password}
+ 	</select>
+ 	
+	<insert id="insertAccount" parameterType="account" keyProperty="id" useGeneratedKeys="true" >
+		INSERT INTO account(username, email, fullname, address, phone, password, enabled, role) 
+		VALUES(#{username},#{email},#{fullname},#{address},#{phone},#{password},#{enabled},#{role})
+	</insert>
  </mapper>

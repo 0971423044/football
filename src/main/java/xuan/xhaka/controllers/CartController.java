@@ -19,10 +19,10 @@ public class CartController {
 	@Autowired
 	CartServiceImpl cartService;
 	
-	@RequestMapping(value="addCart/{product_id}")
+	@RequestMapping(value="/trang-chu/addCart/{product_id}")
 	public String addCart(HttpServletRequest request,HttpSession session, @PathVariable("product_id") int product_id)
 	{
-		HashMap<Integer,Cart> cart = (HashMap<Integer, Cart>) session.getAttribute("Cart");
+		HashMap<Integer,Cart> cart = (HashMap<Integer,Cart>) session.getAttribute("Cart");
 		if(cart == null)
 		{
 			cart = new HashMap<Integer, Cart>();
@@ -30,8 +30,43 @@ public class CartController {
 		cart = cartService.addToCart(product_id, cart);
 		
 		session.setAttribute("Cart", cart);
+		session.setAttribute("TotalQuantityCart", cartService.TotalQuantity(cart));
+		session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
 		
-		return "redirect:" + request.getHeader("Referer");
+		//session.setMaxInactiveInterval(product_id);
+		
+		return "redirect:"+request.getHeader("Referer");
 	}
-
+	@RequestMapping(value="/trang-chu/editCart/{product_id}/{quantity}")
+	public String editCart(HttpServletRequest request,HttpSession session, @PathVariable("product_id") int product_id, @PathVariable("quantity") int quantity)
+	{
+		HashMap<Integer,Cart> cart = (HashMap<Integer,Cart>) session.getAttribute("Cart");
+		if(cart == null)
+		{
+			cart = new HashMap<Integer, Cart>();
+		}
+		cart = cartService.editToCart(product_id,quantity, cart);
+		
+		session.setAttribute("Cart", cart);
+		session.setAttribute("TotalQuantityCart", cartService.TotalQuantity(cart));
+		session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
+		
+		return "redirect:"+request.getHeader("Referer");
+	}
+	@RequestMapping(value="/trang-chu/deleteCart/{product_id}")
+	public String deleteCart(HttpServletRequest request,HttpSession session, @PathVariable("product_id") int product_id)
+	{
+		HashMap<Integer,Cart> cart = (HashMap<Integer,Cart>) session.getAttribute("Cart");
+		if(cart == null)
+		{
+			cart = new HashMap<Integer, Cart>();
+		}
+		cart = cartService.deleteToCart(product_id, cart);
+		session.setAttribute("Cart", cart);
+		session.setAttribute("TotalQuantityCart", cartService.TotalQuantity(cart));
+		session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
+		
+		
+		return "redirect:"+request.getHeader("Referer");
+	}
 }
