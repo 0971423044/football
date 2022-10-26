@@ -31,7 +31,7 @@ public class LoginController {
 	@Autowired
 	AccountServiceImpl accService;
 	
-	@RequestMapping(value="/trang-chu/login", method=RequestMethod.POST)
+	@RequestMapping(value="trang-chu/login", method=RequestMethod.POST)
 	public ModelAndView showFormLoginUser(@ModelAttribute("acc") Account acc,HttpSession session)
 	{
 		ModelAndView mav = new ModelAndView();
@@ -46,7 +46,7 @@ public class LoginController {
 		}
 		return mav;
 	}
-	@RequestMapping(value="/trang-chu/logout", method=RequestMethod.GET)
+	@RequestMapping(value="trang-chu/logout", method=RequestMethod.GET)
 	public String logout(HttpSession session, HttpServletRequest request)
 	{
 		session.invalidate();

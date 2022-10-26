@@ -39,7 +39,8 @@ public class CartMapper {
 	// edit cart 
 	public HashMap<Integer,Cart> editToCart(int product_id,int quantity, HashMap<Integer,Cart> cart)
 	{
-		Product product = proMapper.getProductById(product_id);
+		if(cart==null)
+			return cart;
 		Cart itemCart = new Cart();
 		if(cart.containsKey(product_id))
 		{

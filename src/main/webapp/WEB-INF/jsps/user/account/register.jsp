@@ -21,7 +21,7 @@
 					</c:forEach>
 					<li><a class="totalInCart" href="cart.html"><strong>Total
 								Amount <span class="badge badge-warning pull-right"
-								style="line-height: 18px;">$448.42</span>
+								style="line-height: 18px;">${TotalPriceCart} $</span>
 						</strong></a></li>
 				</ul>
 			</div>
@@ -50,39 +50,38 @@
 						<h5>CREATE YOUR ACCOUNT</h5>
 						<h3>${status}</h3>
 						<h3>${message}</h3>
-						<br /> Enter your e-mail address to create an account.<br />
 						<br />
 						<br />
-						<form:form action="/trang-chu/register" method="post" modelAttribute="acc">
+						<form:form action="register" method="post" modelAttribute="acc">
 							<div class="control-group">
 								<label class="control-label" for="inputUsername">Username</label>
 								<div class="controls">
-									<form:input type="text" class="span3" placeholder="Please input your usename" path="username"/>
+									<form:input type="text" class="span3" placeholder="Please input your usename" required="required" path="username"/>
 								</div>
 								<label class="control-label" for="inputEmail">E-mail
-									address</label>
+								</label>
 								<div class="controls">
-									<form:input type="email" class="span3" placeholder="Please input your email" path="email"/>
+									<form:input type="email" class="span3" placeholder="Please input your email" required="required" path="email"/>
 								</div>
 								<label class="control-label" for="inputPassword">Password
 								</label>
 								<div class="controls">
-									<form:input type="password" class="span3" placeholder="Please input your password" path="password"/>
+									<form:input type="password" class="span3" placeholder="Please input your password" required="required" path="password"/>
 								</div>
 								<label class="control-label" for="inputFullname">Fullname
 								</label>
 								<div class="controls">
-									<form:input type="text" class="span3" placeholder="Please input your fullname" path="fullname"/>
+									<form:input type="text" class="span3" placeholder="Please input your fullname" required="required" path="fullname"/>
 								</div>
 								<label class="control-label" for="inputAddress">Address
 								</label>
 								<div class="controls">
-									<form:input type="text" class="span3" placeholder="Please input your address" path="address"/>
+									<form:input type="text" class="span3" placeholder="Please input your address" required="required" path="address"/>
 								</div>
 								<label class="control-label" for="inputPhone">Phone
 								</label>
 								<div class="controls">
-									<form:input type="text" class="span3" placeholder="Please input your phone" path="phone"/>
+									<form:input type="text" class="span3" placeholder="Please input your phone" required="required" path="phone"/>
 								</div>
 							</div>
 							<div class="controls">
@@ -96,7 +95,7 @@
 				<div class="span4">
 					<div class="well">
 						<h5>ALREADY REGISTERED ?</h5>
-						<form:form action="/trang-chu/login" method="post" modelAttribute="acc">
+						<form:form action="login" method="post" modelAttribute="acc">
 							<div class="control-group">
 								<label class="control-label" for="inputEmail">Email</label>
 								<div class="controls">

@@ -57,6 +57,7 @@
 								  </td>
 				                  <td>
 				                  	<button data-id="${item.key}" class="btn btn-mini btn-danger edit-cart" type="button">
+
 				                  		<span class="icon-edit"></span>
 				                  	</button>
 				                  </td>
@@ -80,13 +81,16 @@
 			</div>
 		</div>
 	</div>
-<script type="text/javascript">
-	$(".edit-cart").on("click", function(){
-		var product_id = $(this).data("id";)
-		var quantity  = $("#quantity-cart-"+product_id).val();
-		alert(quantity);
-		window.location = "/trang-chu/editCart/"+product_id+"/"+quantity;
-	})
-</script>
+<content tag="script">
+	<script type="text/javascript">
+		$(".edit-cart").on("click", function(){
+			var id = $(this).data("id");
+			var quantity = $("#quantity-cart-"+id).val();
+			alert(quantity);
+			window.location = "/trang-chu/editCart/"+id+"/"+quantity;
+		});
+	</script>
+</content>
+
 </body>
 </html>

@@ -26,7 +26,6 @@
  	</select>
  	
 	<insert id="insertAccount" parameterType="account" keyProperty="id" useGeneratedKeys="true" >
-		INSERT INTO account(username, email, fullname, address, phone, password, enabled, role) 
-		VALUES(#{username},#{email},#{fullname},#{address},#{phone},#{password},#{enabled},#{role})
+		INSERT INTO account(username, email, fullname, address, phone, password, enabled, role) VALUES(#{username}, #{email}, #{fullname}, #{address}, #{phone}, #{password}, #{enabled}, #{role})
 	</insert>
  </mapper>
