@@ -49,6 +49,7 @@
 					<div class="well">
 						<h5>CREATE YOUR ACCOUNT</h5>
 						<h3>${status}</h3>
+						<h3>${message}</h3>
 						<br /> Enter your e-mail address to create an account.<br />
 						<br />
 						<br />

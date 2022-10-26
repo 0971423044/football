@@ -28,11 +28,18 @@ public class AccountServiceImpl implements AccountService{
 	@Override
 	public Account CheckAccExisted(Account acc) {
 		String passInput = acc.getPassword();
-		acc = accMapper.getAccByEmail(acc);
-		
+		Account accDB = accMapper.getAccByEmail(acc);
+		if(accDB!=null)
+		{
+			if(BCrypt.checkpw(passInput,accDB.getPassword()))
+			{
+				return accDB;
+			}
+			return null;
+		}
+		return null;
 		
 		// TODO Auto-generated method stub
-		return acc;
 	}
 	@Override
 	public List<Account> getListAccount() {

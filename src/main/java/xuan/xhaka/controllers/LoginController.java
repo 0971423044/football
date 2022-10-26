@@ -3,6 +3,9 @@ package xuan.xhaka.controllers;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,11 +32,26 @@ public class LoginController {
 	AccountServiceImpl accService;
 	
 	@RequestMapping(value="/trang-chu/login", method=RequestMethod.POST)
-	public ModelAndView showFormLoginUser(@ModelAttribute("acc") Account acc)
+	public ModelAndView showFormLoginUser(@ModelAttribute("acc") Account acc,HttpSession session)
 	{
 		ModelAndView mav = new ModelAndView();
+		acc = accService.CheckAccExisted(acc);
+		if(acc!=null)
+		{
+			mav.setViewName("redirect:/trang-chu/");
+			session.setAttribute("accLoginInfo", acc);
+			session.setMaxInactiveInterval(3600);
+		}else {
+			mav.addObject("statusLogin","Login failed! Please try again!");
+		}
 		return mav;
 	}
-	
+	@RequestMapping(value="/trang-chu/logout", method=RequestMethod.GET)
+	public String logout(HttpSession session, HttpServletRequest request)
+	{
+		session.invalidate();
+		
+		return "redirect:"+ request.getHeader("Referer");
+	}
 
 }

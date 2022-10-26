@@ -84,6 +84,7 @@ public class HomeController {
 	{
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/cart/listCart");
+		session.setMaxInactiveInterval(60*60*2);
 		return mav;
 	}
 	@RequestMapping(value="/trang-chu/your-account")
