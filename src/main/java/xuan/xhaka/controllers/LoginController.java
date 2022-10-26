@@ -3,7 +3,9 @@ package xuan.xhaka.controllers;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +34,7 @@ public class LoginController {
 	AccountServiceImpl accService;
 	
 	@RequestMapping(value="trang-chu/login", method=RequestMethod.POST)
-	public ModelAndView showFormLoginUser(@ModelAttribute("acc") Account acc,HttpSession session)
+	public ModelAndView showFormLoginUser(@ModelAttribute("acc") Account acc,HttpSession session, HttpServletResponse response)
 	{
 		ModelAndView mav = new ModelAndView();
 		acc = accService.CheckAccExisted(acc);
@@ -41,6 +43,13 @@ public class LoginController {
 			mav.setViewName("redirect:/trang-chu/");
 			session.setAttribute("accLoginInfo", acc);
 			session.setMaxInactiveInterval(3600);
+
+			Cookie cookie = new Cookie("accInfo",acc.getEmail());
+			
+			cookie.setMaxAge(3600);
+			response.addCookie(cookie);
+			
+			
 		}else {
 			mav.addObject("statusLogin","Login failed! Please try again!");
 		}

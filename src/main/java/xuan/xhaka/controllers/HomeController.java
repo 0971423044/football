@@ -2,6 +2,7 @@ package xuan.xhaka.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,7 @@ public class HomeController {
 	CartServiceImpl cartService;
 	
 	@RequestMapping(value={"/trang-chu"}, method = RequestMethod.GET)
-	public ModelAndView homePage(Model model)
+	public ModelAndView homePage(Model model, HttpServletRequest request)
 	{	
 		ModelAndView mav = new ModelAndView();
 		
@@ -49,7 +50,7 @@ public class HomeController {
 		mav.addObject("listProHighlight", proService.getListProductsHighligght());
 		mav.addObject("listProNew", proService.getListProductsNew());
 		mav.setViewName("user/index");
-		
+		request.getCookies();
 		//model.addAttribute("listCat", listCategories);
 		return mav;
 	}

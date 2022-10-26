@@ -99,13 +99,13 @@
 							<div class="control-group">
 								<label class="control-label" for="inputEmail">Email</label>
 								<div class="controls">
-									<form:input type="email" class="span3" placeholder="Please input your email" path="email"/>
+									<form:input type="email" class="span3" placeholder="Please input your email" required="required" path="email"/>
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label" for="inputPassword">Password</label>
 								<div class="controls">
-									<form:input type="password" class="span3" placeholder="Please input your password" path="password"/>
+									<form:input type="password" class="span3" placeholder="Please input your password" required="required" path="password"/>
 								</div>
 							</div>
 							<div class="control-group">

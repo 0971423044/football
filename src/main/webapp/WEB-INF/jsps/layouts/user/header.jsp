@@ -1,6 +1,8 @@
 	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>  
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <header id="header">
 	<div class="row">
 		<div class="span4">
@@ -64,14 +66,12 @@ Navigation Bar Section
 						class="dropdown-toggle" href="#"><span class="icon-lock"></span>
 							Login <b class="caret"></b></a>
 						<div class="dropdown-menu">
-							<form class="form-horizontal loginFrm">
+							<form:form  action="login" method="post" class="form-horizontal loginFrm" modelAttribute="acc">
 								<div class="control-group">
-									<input type="text" class="span2" id="inputEmail"
-										placeholder="Email">
+									<form:input type="email" class="span2" id="inputEmail" placeholder="Please input your email" required="required" path="email"/>
 								</div>
 								<div class="control-group">
-									<input type="password" class="span2" id="inputPassword"
-										placeholder="Password">
+									<form:input type="email" class="span2" id="inputPassword" placeholder="Please input your password" required="required" path="password"/>
 								</div>
 								<div class="control-group">
 									<label class="checkbox"> <input type="checkbox">
@@ -80,7 +80,7 @@ Navigation Bar Section
 									<button type="submit" class="shopBtn btn-block">Sign
 										in</button>
 								</div>
-							</form>
+							</form:form>
 						</div></li>
 				</ul>
 			</div>
