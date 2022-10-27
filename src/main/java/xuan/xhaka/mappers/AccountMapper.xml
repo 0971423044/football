@@ -24,9 +24,17 @@
  	<select id="getAccByEmailAndPass" parameterType="java.util.HashMap" resultMap="accountMap" resultType="account">
  		SELECT * FROM account as a WHERE a.email=#{email} AND a.password=#{password}
  	</select>
- 	
+ 	<select id="getAccountById" parameterType="int" resultMap="accountMap" resultType="account">
+ 		SELECT * FROM account AS a WHERE a.id=#{id} 
+ 	</select>
 	<insert id="insertAccount" parameterType="account" keyProperty="id" useGeneratedKeys="true" >
-		INSERT INTO account(username, email, fullname, address, phone, password, enabled, role) 
-		VALUES(#{username},#{email},#{fullname},#{address},#{phone},#{password},#{enabled},#{role})
+		INSERT INTO account(username, email, fullname, address, phone, password, enabled, role) VALUES(#{username}, #{email}, #{fullname}, #{address}, #{phone}, #{password}, #{enabled}, #{role})
 	</insert>
+	<update id="updateAccount" parameterType="account">
+		UPDATE account SET username=#{username}, email=#{email}, fullname=#{fullname},address=#{address},phone=#{phone},password=#{password},enabled=#{enabled},role=#{role}
+		WHERE id=#{id}
+	</update>
+	<delete id="deleteAccount" parameterType="int">
+		DELETE FROM account AS a WHERE a.id=#{id}  
+	</delete>
  </mapper>

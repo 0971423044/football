@@ -57,6 +57,7 @@
 								  </td>
 				                  <td>
 				                  	<button data-id="${item.key}" class="btn btn-mini btn-danger edit-cart" type="button">
+
 				                  		<span class="icon-edit"></span>
 				                  	</button>
 				                  </td>
@@ -74,19 +75,22 @@
 				<br />
 				<a href="products.html" class="shopBtn btn-large"><span
 					class="icon-arrow-left"></span> Continue Shopping </a> <a
-					href="login.html" class="shopBtn btn-large pull-right">Next <span
+					href="<c:url value="/trang-chu/checkout"/>" class="shopBtn btn-large pull-right">Checkout<span
 					class="icon-arrow-right"></span></a>
 
 			</div>
 		</div>
 	</div>
-<script type="text/javascript">
-	$(".edit-cart").on("click", function(){
-		var product_id = $(this).data("id";)
-		var quantity  = $("#quantity-cart-"+product_id).val();
-		alert(quantity);
-		window.location = "/trang-chu/editCart/"+product_id+"/"+quantity;
-	})
-</script>
+<content tag="script">
+	<script type="text/javascript">
+		$(".edit-cart").on("click", function(){
+			var id = $(this).data("id");
+			var quantity = $("#quantity-cart-"+id).val();
+			alert(quantity);
+			window.location = "trang-chu/editCart/"+id+"/"+quantity;
+		});
+	</script>
+</content>
+
 </body>
 </html>

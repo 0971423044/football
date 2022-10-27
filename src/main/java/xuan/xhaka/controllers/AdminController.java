@@ -14,24 +14,32 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AdminController {
 	
-	@RequestMapping(value= {"/admin"}, method=RequestMethod.GET)
-	public String showAdminPage()
+	@RequestMapping(value= {"/admin/"}, method=RequestMethod.GET)
+	public ModelAndView showAdminPage()
 	{
-		return "admin/index";
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("admin/account/index");
+		
+		return mav;
 	}
 	
-	@RequestMapping(value={"/admin/products"}, method=RequestMethod.GET)
-	public String showProductManage()
+	@RequestMapping(value={"/admin/account"}, method=RequestMethod.GET)
+	public ModelAndView showAccountManage()
 	{
-		return "admin/products";
+		ModelAndView mav  = new ModelAndView();
+		mav.setViewName("admin/account/listAccount");
+		return mav;
 	}
-	@RequestMapping(value={"/admin/categories"}, method=RequestMethod.GET)
-	public String showCategoryManage()
+	@RequestMapping(value={"/admin/showFormAdd"}, method=RequestMethod.GET)
+	public ModelAndView showCategoryManage()
 	{
-		return "admin/products";
+		ModelAndView mav  = new ModelAndView();
+		mav.setViewName("admin/account");
+		return mav;
 	}
-	@RequestMapping(value={"/admin/users"}, method=RequestMethod.GET)
-	public String showUserManage()
+	@RequestMapping(value={"/admin/addAccount"}, method=RequestMethod.POST)
+	public String saveAccount()
 	{
 		return "admin/products";
 	}

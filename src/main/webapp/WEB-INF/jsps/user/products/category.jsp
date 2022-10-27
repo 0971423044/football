@@ -44,7 +44,7 @@
 										</c:forEach>
 									</a>
 									<div class="caption">
-										<h5>${item.productname}</h5>
+										<p>${item.productname}</p>
 										<h4>
 											<a class="defaultBtn" href="<c:url value="/trang-chu/product-detail/${item.product_id}"/>"
 												title="Click to view"><span class="icon-zoom-in"></span></a>

@@ -52,5 +52,29 @@ public class AccountMapper {
 		
 		return acc;
 	}
+	public void updateAccount(Account account)
+	{
+		SqlSession session = MyBatisUtilConfig.getSqlSessionFactory().openSession();
+		session.update("updateAccount", account);
+		session.commit();
+		session.close();
+	}
+	public void deleteAccount(int id)
+	{
+		SqlSession session = MyBatisUtilConfig.getSqlSessionFactory().openSession();
+		
+		session.delete("deleteAccount", id);
+		session.commit();
+		session.close();
+	}
+	public Account getAccountById(int id)
+	{
+		SqlSession session = MyBatisUtilConfig.getSqlSessionFactory().openSession();
+		Account account = (Account) session.selectOne("getAccountById", id);
+		session.commit();
+		session.close();
+		
+		return account;
+	}
 
 }

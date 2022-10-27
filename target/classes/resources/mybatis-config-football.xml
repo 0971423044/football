@@ -9,6 +9,10 @@
   		<typeAlias type="xuan.xhaka.entity.Slide" alias="slide"/>
   		<typeAlias type="xuan.xhaka.entity.Product" alias="product"/>
   		<typeAlias type="xuan.xhaka.entity.ProductColor" alias="productColor" />
+  		<typeAlias type="xuan.xhaka.entity.Account" alias="account" />
+  		<typeAlias type="xuan.xhaka.entity.Cart" alias="cart" />
+  		<typeAlias type="xuan.xhaka.entity.Bill" alias="bill" />
+  		<typeAlias type="xuan.xhaka.entity.BillDetail" alias="billDetail" />
   	</typeAliases>
   	<environments default="development">
   		<environment id="development">
@@ -26,5 +30,7 @@
   		<mapper resource="xuan/xhaka/mappers/MenuMapper.xml"/>
   		<mapper resource="xuan/xhaka/mappers/SlideMapper.xml"/>
   		<mapper resource="xuan/xhaka/mappers/ProductMapper.xml"/>
+  		<mapper resource="xuan/xhaka/mappers/AccountMapper.xml"/>
+  		<mapper resource="xuan/xhaka/mappers/BillMapper.xml"/>
   	</mappers>
  </configuration>

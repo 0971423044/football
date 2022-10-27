@@ -50,9 +50,7 @@
 		-->
 	<%@include file="/WEB-INF/jsps/layouts/admin/footer.jsp" %>
 	
-
-</body>
- <!-- Vendor JS Files -->
+<!-- Vendor JS Files -->
   <script src="<c:url value="/assets/admin/vendor/apexcharts/apexcharts.min.js"/>"></script>
   <script src="<c:url value="/assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
   <script src="<c:url value="/assets/admin/vendor/chart.js/chart.min.js"/>"></script>
@@ -62,5 +60,7 @@
 
   <!-- Template Main JS File -->
   <script src="<c:url value="/assets/admin/js/main.js"/>"></script>
+</body>
+ 
 
 </html>
