@@ -73,5 +73,26 @@ public class ProductMapper {
 		
 		return listPro;
 	}
-
+	public void AddProduct(Product product)
+	{
+		SqlSession session = MyBatisUtilConfig.getSqlSessionFactory().openSession();
+		session.insert("insertProduct", product);
+		session.commit();
+		session.close();
+	}
+	
+	public void updateProduct(Product product)
+	{
+		SqlSession session = MyBatisUtilConfig.getSqlSessionFactory().openSession();
+		session.update("updateProduct", product);
+		session.commit();
+		session.close();
+	}
+	public void deleteProduct(int product_id)
+	{
+		SqlSession session = MyBatisUtilConfig.getSqlSessionFactory().openSession();
+		session.delete("deleteProduct", product_id);
+		session.commit();
+		session.close();
+	}
 }

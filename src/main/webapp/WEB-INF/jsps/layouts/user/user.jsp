@@ -51,9 +51,18 @@
 					</div>
 					<a class="active" href="<c:url value="/trang-chu/"/>"> <span class="icon-home"></span>
 						Home
-					</a> <a href="/trang-chu/your-account"><span class="icon-user"></span> My Account</a> <a
-						href='<c:url value="/trang-chu/register"/>'><span class="icon-edit"></span> Free
-						Register </a> <a href="contact.html"><span class="icon-envelope"></span>
+					</a>
+					<c:if test="${not empty accLoginInfo }">
+						<a href="#"><span class="icon-user"></span>${accLoginInfo.username}</a>
+						<a href="<c:url value="/trang-chu/logout"/>"><span class="icon-edit"></span>Logout</a>
+					</c:if> 
+					<a href="/trang-chu/your-account"><span class="icon-user"></span> My Account</a> 
+					<c:if test="${empty accLoginInfo }">
+						<a href='<c:url value="/trang-chu/register"/>'><span class="icon-edit"></span> Free
+							Register </a> 
+					</c:if>
+						
+						<a href="contact.html"><span class="icon-envelope"></span>
 						Contact us</a> <a href="<c:url value="/trang-chu/your-cart"/>"><span
 						class="icon-shopping-cart"></span> ${TotalQuantityCart} - items <span
 						class="badge badge-warning"> ${TotalPriceCart} $</span></a>

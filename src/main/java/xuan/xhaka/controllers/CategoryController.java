@@ -66,7 +66,7 @@ public class CategoryController {
 		int start = paginateInfo.getStart();
 		int end= paginateInfo.getEnd();
 		pagingMap.put("start", paginateInfo.getStart());
-		pagingMap.put("end", paginateInfo.getEnd());
+		pagingMap.put("end", totalProPerPage);
 		
 		List<Product> listProByPaging = proService.getListProByPaging(pagingMap);
 		

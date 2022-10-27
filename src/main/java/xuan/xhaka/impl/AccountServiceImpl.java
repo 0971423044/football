@@ -58,6 +58,24 @@ public class AccountServiceImpl implements AccountService{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	@Override
+	public void deleteAccount(int id) {
+		// TODO Auto-generated method stub
+		accMapper.deleteAccount(id);
+		
+	}
+	@Override
+	public Account getAccById(int id) {
+		// TODO Auto-generated method stub
+		Account acc = accMapper.getAccountById(id);
+		return acc;
+	}
+	@Override
+	public void updateAccount(Account acc) {
+		// TODO Auto-generated method stub
+		accMapper.updateAccount(acc);
+		
+	}
 	
 	
 

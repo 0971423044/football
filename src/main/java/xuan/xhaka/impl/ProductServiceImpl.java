@@ -59,4 +59,22 @@ public class ProductServiceImpl implements ProductService{
 		return listPro;
 	}
 
+	@Override
+	public void AddProduct(Product product) {
+		// TODO Auto-generated method stub
+		proMapper.AddProduct(product);
+	}
+
+	@Override
+	public void updateProduct(Product product) {
+		// TODO Auto-generated method stub
+		proMapper.updateProduct(product);
+	}
+
+	@Override
+	public void deleteProduct(int product_id) {
+		// TODO Auto-generated method stub
+		proMapper.deleteProduct(product_id);
+	}
+
 }

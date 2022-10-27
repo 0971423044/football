@@ -13,4 +13,10 @@ public interface ProductService {
 	public List<Product> getListProByPaging(Map<String, Integer> pagingMap);
 	public Product getProductById(int product_id);
 	public List<Product> getListProducts();
+	
+	public void AddProduct(Product product);
+	
+	public void updateProduct(Product product);
+	
+	public void deleteProduct(int product_id);
 }

@@ -10,6 +10,10 @@ import xuan.xhaka.entity.Account;
 public interface AccountService {
 	public int AddAccount(Account acc);
 	public Account CheckAccExisted(Account acc);
-	public List<Account> getListAccount();
+	
 	public boolean CheckEmailDuplicated(String email);
+	public List<Account> getListAccount();
+	public void deleteAccount(int id);
+	public Account getAccById(int id);	
+	public void updateAccount(Account acc);
 }

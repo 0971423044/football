@@ -40,15 +40,19 @@ public class LoginController {
 		acc = accService.CheckAccExisted(acc);
 		if(acc!=null)
 		{
-			mav.setViewName("redirect:/trang-chu/");
-			session.setAttribute("accLoginInfo", acc);
-			session.setMaxInactiveInterval(3600);
-
-			Cookie cookie = new Cookie("accInfo",acc.getEmail());
-			
-			cookie.setMaxAge(3600);
-			response.addCookie(cookie);
-			
+			if(acc.isEnabled()==true)
+			{
+				mav.setViewName("redirect:/trang-chu/");
+				session.setAttribute("accLoginInfo", acc);
+				session.setMaxInactiveInterval(3600);
+	
+				Cookie cookie = new Cookie("accInfo",acc.getEmail());
+				
+				cookie.setMaxAge(3600);
+				response.addCookie(cookie);
+			}else {
+				mav.addObject("statusLogin", "Your account is locking!");
+			}
 			
 		}else {
 			mav.addObject("statusLogin","Login failed! Please try again!");
@@ -58,8 +62,9 @@ public class LoginController {
 	@RequestMapping(value="trang-chu/logout", method=RequestMethod.GET)
 	public String logout(HttpSession session, HttpServletRequest request)
 	{
-		session.invalidate();
 		
+		session.removeAttribute("accLoginInfo");
+		session.invalidate();
 		return "redirect:"+ request.getHeader("Referer");
 	}
 

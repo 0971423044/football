@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="xuan.xhaka.dao.BillMapper">
+ 	<resultMap id="billMap" type="bill">
+ 		<id property="bill_id" column="bill_id" />
+ 		<result property="fullname" column="fullname"/>
+ 		<result property="email" column="email"/>
+ 		<result property="phone" column="phone"/>
+ 		<result property="address" column="address"/>
+ 		<result property="note" column="note"/>
+ 		<result property="shipCod" column="shipCod"/>
+ 		<result property="total" column="total"/>
+ 		<result property="quantity" column="quantity"/>
+ 		<collection property="listBillDetail" javaType="List" ofType="xuan.xhaka.entity.BillDetail" column="bill_id">
+ 			<result property="id" column="id"/>
+ 			<result property="product_id" column="product_id"/>
+ 			<result property="quantity" column="quantity"/>
+ 			<result property="total" column="total"/>
+ 			<result property="sale_off" column="sale_off"/>
+ 		</collection>
+ 	</resultMap>
+ 	
+ 	<select id="getAllBills" resultMap="billMap" resultType="bill">
+ 		SELECT * FROM bill
+ 	</select>
+	<select id="getMaxId" resultMap="billMap" resultType="int">
+		SELECT MAX(bill_id) as idMaxBill FROM bill
+	</select>
+	<select id="getAllBillDetail" resultMap="billMap" resultType="billDetail">
+		SELECT * FROM bill_detail
+	</select>
+	<insert id="insertBill" parameterType="bill" keyProperty="bill_id" useGeneratedKeys="true" >
+		INSERT INTO bill(fullname, email, phone, address, note, shipCod, total, quantity) VALUES(#{fullname}, #{email}, #{phone}, #{address}, #{note}, #{shipCod}, #{total}, #{quantity})
+	</insert>
+	<insert id="insertBillDetail" parameterType="billDetail" keyProperty="id" useGeneratedKeys="true" >
+		INSERT INTO bill_detail(product_id, bill_id, quantity, total) VALUES(#{product_id},#{bill_id},#{quantity},#{total})
+	</insert>
+	<delete id="deleteBillDetailByBillId" parameterType="int">
+		DELETE FROM bill_detail AS bd WHERE bd.bill_id = #{bill_id}
+	</delete>
+	<delete id="deleteBillById" parameterType="int">
+		DELETE FROM bill WHERE bill_id=#{bill_id}
+	</delete>
+ </mapper>

@@ -75,7 +75,7 @@
 				<br />
 				<a href="products.html" class="shopBtn btn-large"><span
 					class="icon-arrow-left"></span> Continue Shopping </a> <a
-					href="login.html" class="shopBtn btn-large pull-right">Next <span
+					href="<c:url value="/trang-chu/checkout"/>" class="shopBtn btn-large pull-right">Checkout<span
 					class="icon-arrow-right"></span></a>
 
 			</div>
@@ -87,7 +87,7 @@
 			var id = $(this).data("id");
 			var quantity = $("#quantity-cart-"+id).val();
 			alert(quantity);
-			window.location = "/trang-chu/editCart/"+id+"/"+quantity;
+			window.location = "editCart/"+id+"/"+quantity;
 		});
 	</script>
 </content>

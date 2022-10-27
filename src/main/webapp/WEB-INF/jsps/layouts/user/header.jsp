@@ -62,26 +62,18 @@ Navigation Bar Section
 					<input type="text" placeholder="Search" class="search-query span2">
 				</form>
 				<ul class="nav pull-right">
-					<li class="dropdown"><a data-toggle="dropdown"
+					<c:if test="${empty accLoginInfo}">
+						<li class="dropdown"><a data-toggle="dropdown"
 						class="dropdown-toggle" href="#"><span class="icon-lock"></span>
-							Login <b class="caret"></b></a>
+						 <b class="caret"></b></a>
 						<div class="dropdown-menu">
-							<form:form  action="login" method="post" class="form-horizontal loginFrm" modelAttribute="acc">
-								<div class="control-group">
-									<form:input type="email" class="span2" id="inputEmail" placeholder="Please input your email" required="required" path="email"/>
-								</div>
-								<div class="control-group">
-									<form:input type="email" class="span2" id="inputPassword" placeholder="Please input your password" required="required" path="password"/>
-								</div>
-								<div class="control-group">
-									<label class="checkbox"> <input type="checkbox">
-										Remember me
-									</label>
-									<button type="submit" class="shopBtn btn-block">Sign
-										in</button>
-								</div>
-							</form:form>
+							
 						</div></li>
+					</c:if>
+					<c:if test="${not empty accLoginInfo}">
+						<li><a href="#">${accLoginInfo.username}<b class="caret"></b></a></li>
+					</c:if>
+					
 				</ul>
 			</div>
 		</div>

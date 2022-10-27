@@ -10,5 +10,12 @@ import xuan.xhaka.entity.Category;
 public interface CategoryService {
 	
 	public List<Category> getListCategories();
+	public void AddCategory(Category category);
+	
+	public Category getCatById(int id_category);
+	
+	public void updateCategory(Category cayegory);
+	
+	public void deleteCategory(int id_category);
 
 }

@@ -12,4 +12,16 @@
 	<select id="getAllCategories" resultType="category" resultMap="result">
 		SELECT * FROM category
 	</select>
+	<select id="getCatById" resultMap="result" resultType="category" parameterType="int">
+		SELECT * FROM category AS cat WHERE cat.id_category=#{id_category} 
+	</select>
+	<insert id="insertCategory" parameterType="category" keyProperty="id_category" useGeneratedKeys="true">
+		INSERT INTO category(name, description) VALUES(#{name},#{description})
+	</insert>
+	<delete id="deleteCategory" parameterType="int">
+		DELETE FROM category WHERE id_category=#{id_category}
+	</delete>
+	<update id="updateCategory" parameterType="category">
+		UPDATE category SET name=#{name}, description=#{description} WHERE id_category=#{id_category}
+	</update>
 </mapper>

@@ -100,8 +100,31 @@
  		SELECT p.product_id, p.id_category, p.productname, p.size, p.price, p.sale, 
  		p.quantity, p.status, p.title, p.highlight, p.product_new, p.detail, 
  		c.id_color, c.name_color, c.code, c.img, p.created_at, p.updated_at
- 		FROM product AS p JOIN product_color AS c ON p.product_id=c.product_id
+ 		FROM product AS p
+ 		JOIN product_color AS c ON p.product_id=c.product_id
  		GROUP BY p.product_id, c.product_id
- 		LIMIT #{start},#{end}
+ 		LIMIT #{start},#{totalProPerPage}
  	</select>
+ 	<insert id="insertProduct" parameterType="product" keyProperty="product_id" useGeneratedKeys="true">
+ 		INSERT INTO product(productname, price, quantity, status, id_category, title, highlight, product_new, detail, created_at, updated_at, size, sale )
+ 		VALUES
+	 		<foreach collection="listProduct" item="product" open="(" separator="),(" close=")">
+	 			#{productname},#{price},#{quantity},#{status},#{id_category},#{title},#{highlight},#{product_new},#{detail},#{create_at},#{updated_at},#{size},#{sale}
+	 		</foreach>
+ 	</insert>
+ 	<delete id="deleteProduct" parameterType="int">
+ 		DELETE FROM product AS p WHERE p.product_id=#{product_id} 
+ 	</delete>
+ 	<delete id="deleteProDetailByProId" parameterType="int">
+ 		DELETE FROM product_detail AS pd WHERE pd.product_id=#{product_id}
+ 	</delete>
+ 	<delete id="deleteProByCatId" parameterType="int">
+ 		DELETE FROM product AS p WHERE p.id_category=#{id_category}
+ 	</delete>
+ 	<update id="updateProduct" parameterType="product">
+		UPDATE product SET productname=#{productname}, price=#{price}, quantity=#{quantity},
+		status=#{status},id_category=#{id_category},title=#{title},highlight=#{highlight},product_new=#{product_new},
+		detail=#{detail}, updated_at=#{updated_at}, size=#{size}, sale=#{sale}
+		WHERE product_id=#{product_id}
+	</update>
  </mapper>

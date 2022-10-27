@@ -3,7 +3,7 @@
 		<pattern>/trang-chu/*</pattern>
 	</decorator>
 	<decorator name="admin" page="admin/admin.jsp">
-		<pattern>/quan-tri/*</pattern>
+		<pattern>/admin/*</pattern>
 	</decorator>
 	
 </decorators>
